@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Demo</title>
+</head>
+<body>
+
+    <button id="generateReport">Generate Report</button>
+    <script>
+    
+    let $ = require('jquery')
+    var {ipcRenderer} = require('electron')
+    var args=[{ "row1": { "col1": "World" ,"col2":"World for column2"}, "row2": { "col1": "Electron" }, "row3": { "col1": "Jsreport" } }];
+
+    $('#generateReport').on('click', () => {
+
+        ipcRenderer.send('generateReport', args)
+
+    })
+
+    </script>
+</body>
+</html>
