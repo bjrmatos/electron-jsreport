@@ -17,11 +17,12 @@
   "license": "ISC",
   "dependencies": {
     "jquery": "^3.3.1",
-    "jsreport": "@latest",
+    "jsreport": "^2.1.0",
+    "jsreport-cli": "^2.0.3",
     "react": "^16.4.1"
   },
   "devDependencies": {
-    "electron": "@latest",
+    "electron": "^2.0.2",
     "electron-builder": "^20.15.1"
   }
 }
