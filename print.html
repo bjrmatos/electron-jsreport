@@ -8,30 +8,11 @@
 </style>
 <img src='{#asset ./Linux.png @encoding=dataURI}'/>
 <table>
+  {{for rows}}
   <tr>
     <td>
-      {{for row1}}
       Hello {{:col1}}
-      {{/for}}
-    </td>
-    <td>
-      {{for row1}}
-      Hello {{:col2}}
-      {{/for}}
     </td>
   </tr>
-  <tr>
-    <td colspan="2">
-        {{for row2}}
-      Hello {{:col1}}
-      {{/for}}
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2">
-        {{for row3}}
-      Hello {{:col1}}
-      {{/for}}
-    </td>
-  </tr>
+  {{/for}}
 </table>

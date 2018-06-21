@@ -3,19 +3,6 @@
     "key": "certificates/jsreport.net.key",
     "cert": "certificates/jsreport.net.cert"
   },
-  "authentication": {
-    "cookieSession": {
-      "secret": "<your strong secret>"
-    },
-    "admin": {
-      "username": "admin",
-      "password": "password"
-    },
-    "enabled": false
-  },
-  "connectionString": {
-    "name": "fs"
-  },
   "httpPort": 5488,
   "httpsPort": null,
   "logger": {
@@ -34,21 +21,38 @@
       "filename": "logs/error.log"
     }
   },
-  "blobStorage": "fileSystem",
-  "phantom": {
-    "strategy": "dedicated-process",
-    "timeout": 60000
+  "store": {
+    "provider": "fs"
   },
-  "tasks": {
+  "blobStorage": {
+    "provider": "fs"
+  },
+  "templatingEngines": {
     "strategy": "dedicated-process",
     "timeout": 10000,
     "allowedModules": []
   },
-  "scripts": {
-    "allowedModules": [],
+  "phantom": {
+    "strategy": "dedicated-process",
     "timeout": 60000
   },
-  "sample-template": {
-    "createSamples": true
+  "extensions": {
+    "authentication": {
+      "cookieSession": {
+        "secret": "<your strong secret>"
+      },
+      "admin": {
+        "username": "admin",
+        "password": "password"
+      },
+      "enabled": false
+    },
+    "scripts": {
+      "allowedModules": [],
+      "timeout": 60000
+    },
+    "sample-template": {
+      "createSamples": true
+    }
   }
 }

@@ -2,13 +2,16 @@ const { app, BrowserWindow, ipcMain } = require('electron')
 const url = require('url')
 const path = require('path')
 var jsreport = require('jsreport')({
-  assets: {
-    allowedFiles: '**/*.*',
-    publicAccessEnabled: true,
-    searchOnDiskIfNotFoundInStore: true,
-    rootUrlForLinks: "http://localhost:5488"
+  extensions: {
+    assets: {
+      allowedFiles: '**/*.*',
+      publicAccessEnabled: true,
+      searchOnDiskIfNotFoundInStore: true,
+      rootUrlForLinks: "http://localhost:5488"
+    }
   }
 });
+
 var fs = require('fs')
 
 jsreport.init().then(function () {
@@ -20,11 +23,13 @@ jsreport.init().then(function () {
 ipcMain.on('generateReport', (e, args) => {
   jsreport.render({
     template: {
-      content: './print.html',
+      content: fs.readFileSync('./print.html').toString(),
       engine: 'jsrender',
-      recipe: 'phantom-pdf'
+      recipe: 'chrome-pdf'
     },
-    data: args
+    data: {
+      rows: args
+    }
   }).then(function (resp) {
     fs.writeFileSync('report.pdf', resp.content)
   });
