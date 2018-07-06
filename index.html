@@ -11,14 +11,11 @@
     <button id="generateReport">Generate Report</button>
     <script>
     
-    let $ = require('jquery')
-    var {ipcRenderer} = require('electron')
+    var { ipcRenderer } = require('electron')
     var args=[{ "row1": { "col1": "World" ,"col2":"World for column2"}, "row2": { "col1": "Electron" }, "row3": { "col1": "Jsreport" } }];
 
-    $('#generateReport').on('click', () => {
-
+    document.getElementById('generateReport').addEventListener('click', () => {
         ipcRenderer.send('generateReport', args)
-
     })
 
     </script>

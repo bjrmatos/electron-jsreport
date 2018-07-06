@@ -17,3 +17,5 @@ Once completed with this run the electron-builder with `electron-builder -w` thi
 If the issue can't be fixed then just downgrade the electron and jsreport to the below specified versions:
 
 electron v1.7.13 and jsreport v1.10.0.
+
+
